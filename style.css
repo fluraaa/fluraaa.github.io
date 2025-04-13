@@ -5,7 +5,6 @@ body {
 	color: white;
 	background: white;
 	font-family: 'TeletactileLatCyr', sans-serif;
-	font-display: swap;
 }
 
 @font-face {
@@ -14,7 +13,6 @@ body {
 	url('fonts/TeletactileLatCyr.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
-	font-display: swap;
   }  
 
 
@@ -74,8 +72,7 @@ body {
 	font-weight: 700;
 	font-family: 'TeletactileLatCyr';
 	src: url('fonts/TeletactileLatCyr.woff2') format('woff2'),
-		url('fonts/TeletactileLatCyr.woff') format('woff');
-	font-display: swap;
+	url('fonts/TeletactileLatCyr.woff') format('woff');
 
 	transition: background .2s linear;
 }
