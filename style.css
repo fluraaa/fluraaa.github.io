@@ -9,7 +9,8 @@ body {
 
 @font-face {
 	font-family: 'TeletactileLatCyr';
-	src: url('fonts/TeletactileLatCyr.ttf') format('truetype');
+	src: url('fonts/TeletactileLatCyr.woff2') format('woff2'),
+	url('fonts/TeletactileLatCyr.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
   }  
@@ -70,7 +71,8 @@ body {
 	text-transform: none;
 	font-weight: 700;
 	font-family: 'TeletactileLatCyr';
-	src: url('fonts/TeletactileLatCyr.ttf') format('truetype');
+	src: url('fonts/TeletactileLatCyr.woff2') format('woff2'),
+		url('fonts/TeletactileLatCyr.woff') format('woff');
 
 	transition: background .2s linear;
 }
