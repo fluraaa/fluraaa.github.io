@@ -1,0 +1,99 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 18px;
+	color: white;
+	background: white;
+	font-family: 'TeletactileLatCyr', sans-serif;
+}
+
+@font-face {
+	font-family: 'TeletactileLatCyr';
+	src: url('fonts/TeletactileLatCyr.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+  }  
+
+
+.container {
+	max-width: 390px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.inner {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.img {
+	width: 150px;
+	height: auto;
+	margin: 0 0 8px;
+}
+
+.item {
+	text-align: center;
+	
+	
+}
+
+.title {
+    font-weight: bold;
+    font-size: 15px;
+    margin:0 0 5px;
+	color: mediumblue;
+}
+
+.description {
+    margin: 0 0 8px;
+    font-size: 14px;
+    color:mediumblue ;
+}
+
+.price{
+	font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 8px;
+	color: mediumblue;
+
+}
+
+.btn {
+	display: inline-block;
+	padding: 10px 20px;
+	border: none;
+	background: mediumblue;
+	border-radius: 10px;
+	color: #fff;
+	text-transform: none;
+	font-weight: 700;
+	font-family: 'TeletactileLatCyr';
+	src: url('fonts/TeletactileLatCyr.ttf') format('truetype');
+
+	transition: background .2s linear;
+}
+
+.btn:hover {
+	background: royalblue;
+}
+
+.usercard {
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
