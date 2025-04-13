@@ -1,5 +1,5 @@
-let tg = window.Telegram.WebApp;
 
+let tg = window.Telegram.WebApp;
 tg.expand();
 
 tg.MainButton.textColor = '#FFFFFF';
@@ -7,90 +7,53 @@ tg.MainButton.color = '#0000CD';
 
 let item = "";
 
-let btn1 = document.getElementById("btn1");
-let btn2 = document.getElementById("btn2");
-let btn3 = document.getElementById("btn3");
-let btn4 = document.getElementById("btn4");
-let btn5 = document.getElementById("btn5");
-let btn6 = document.getElementById("btn6");
+const itemTexts = {
+  btn1: "Её нельзя обменять.",
+  btn2: "Как этим вообще играть?",
+  btn3: "Зачем тебе это?",
+  btn4: "Вряд ли это можно использовать.",
+  btn5: "Из этого можно есть?",
+  btn6: "Отличный выбор!",
+};
 
-btn1.addEventListener("click", function(){
-	if (tg.MainButton.isVisible) {
-		tg.MainButton.hide();
-	}
-	else {
-		tg.MainButton.setText("Её нельзя обменять.");
-		item = "1";
-		tg.MainButton.show();
-	}
-});
+const buttons = document.querySelectorAll('.btn');
+const orderPopup = document.getElementById("orderPopup");
+const orderNowBtn = document.getElementById("orderNowBtn");
 
-btn2.addEventListener("click", function(){
-	if (tg.MainButton.isVisible) {
-		tg.MainButton.hide();
-	}
-	else {
-		tg.MainButton.setText("Как этим вообще играть?");
-		item = "2";
-		tg.MainButton.show();
-	}
-});
+buttons.forEach(button => {
+	button.addEventListener('click', () => {
+	  const id = button.id;
+	  const itemId = id.replace("btn", "");
+	  const currentText = button.textContent;
+  
+	  if (currentText === "Добавить") {
+		button.textContent = "+ / -";
+		selectedItems.push(itemId);
+	  } else {
+		button.textContent = "Добавить";
+		selectedItems = selectedItems.filter(i => i !== itemId);
+	  }
+  
+	
+	  if (selectedItems.length > 0) {
+		orderPopup.style.display = "block";
+	  } else {
+		orderPopup.style.display = "none";
+	  }
+	});
+  });
+  
+  
+  orderNowBtn.addEventListener("click", () => {
+	tg.MainButton.setText("Оформить заказ");
+	tg.MainButton.show();
+  });
+  
 
-btn3.addEventListener("click", function(){
-	if (tg.MainButton.isVisible) {
-		tg.MainButton.hide();
-	}
-	else {
-		tg.MainButton.setText("Зачем тебе это?");
-		item = "3";
-		tg.MainButton.show();
-	}
-});
-
-btn4.addEventListener("click", function(){
-	if (tg.MainButton.isVisible) {
-		tg.MainButton.hide();
-	}
-	else {
-		tg.MainButton.setText("Вряд ли это можно использовать.");
-		item = "4";
-		tg.MainButton.show();
-	}
-});
-
-btn5.addEventListener("click", function(){
-	if (tg.MainButton.isVisible) {
-		tg.MainButton.hide();
-	}
-	else {
-		tg.MainButton.setText("Из этого можно есть?");
-		item = "5";
-		tg.MainButton.show();
-	}
-});
-
-btn6.addEventListener("click", function(){
-	if (tg.MainButton.isVisible) {
-		tg.MainButton.hide();
-	}
-	else {
-		tg.MainButton.setText("Отличный выбор!");
-		item = "6";
-		tg.MainButton.show();
-	}
-});
-
-
-Telegram.WebApp.onEvent("mainButtonClicked", function(){
-	tg.sendData(item);
-});
-
-
-let usercard = document.getElementById("usercard");
-
-let p = document.createElement("p");
-
-p.innerText = `${tg.initDataUnsafe.user.first_name}
-${tg.initDataUnsafe.user.last_name}`;
-
-usercard.appendChild(p);
+  Telegram.WebApp.onEvent("mainButtonClicked", function(){
+	const orderData = {
+	  items: selectedItems
+	};
+	tg.sendData(JSON.stringify(orderData));
+  });
+  
