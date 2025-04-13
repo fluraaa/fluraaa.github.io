@@ -4,13 +4,13 @@ body {
 	font-size: 18px;
 	color: white;
 	background: white;
-	font-family: 'TeletactileLatCyr', sans-serif;
+	font-family: 'TeletactileRus', sans-serif;
 }
 
 @font-face {
-	font-family: 'TeletactileLatCyr';
-	src: url('/fonts/TeletactileLatCyr.woff2') format('woff2'),
-	url('/fonts/TeletactileLatCyr.woff') format('woff');
+	font-family: 'TeletactileRus';
+	src: url('./fonts/TeletactileRus.woff2') format('woff2'),
+	url('./fonts/TeletactileRus.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
   }  
@@ -70,9 +70,9 @@ body {
 	color: #fff;
 	text-transform: none;
 	font-weight: 700;
-	font-family: 'TeletactileLatCyr';
-	src: url('/fonts/TeletactileLatCyr.woff2') format('woff2'),
-	url('/fonts/TeletactileLatCyr.woff') format('woff');
+	font-family: 'TeletactileRus';
+	src: url('./fonts/TeletactileRus.woff2') format('woff2'),
+	url('./fonts/TeletactileRus.woff') format('woff');
 
 	transition: background .2s linear;
 }
